@@ -1,0 +1,244 @@
+/* 一年の一字 の公開ページの共通スタイル。色は、アプリの紙と墨と朱（docs/mocks/README.md の「色と文字」）に合わせる。 */
+
+:root {
+  --bg: #f4efe6;
+  --surface: #fbf8f2;
+  --ink: #1c1b1e;
+  --sub: #5e584f;
+  --border: #d9d2c5;
+  --primary: #1b6f80;
+  --seal: #c2382b;
+  --soft: #ece5d8;
+  --on-ink: #f4efe6;
+  --radius: 14px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1917;
+    --surface: #262421;
+    --ink: #f1ece2;
+    --sub: #b5aea2;
+    --border: #3a3733;
+    --primary: #7cc4d0;
+    --soft: #302d29;
+    --on-ink: #1a1917;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: var(--primary);
+  text-underline-offset: 3px;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 上の帯 */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.brand {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 15px;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 8px 0;
+  text-decoration: none;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* 本文 */
+main {
+  padding: 32px 0 48px;
+}
+
+h1 {
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 32px 0 8px;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+.meta {
+  color: var(--sub);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.card > h2:first-child {
+  margin-top: 0;
+}
+
+main ul,
+main ol {
+  padding-left: 1.4em;
+  margin: 0 0 12px;
+}
+
+code {
+  background: var(--soft);
+  border-radius: 6px;
+  padding: 1px 5px;
+  font-size: 0.92em;
+}
+
+/* 表 */
+.table-scroll {
+  overflow-x: auto;
+  margin: 0 0 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--soft);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* トップ */
+.hero {
+  text-align: center;
+  padding: 24px 0 8px;
+}
+
+.hero .app-icon {
+  display: block;
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 16px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+}
+
+.hero .logo {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.hero .pitch {
+  color: var(--sub);
+  margin: 4px 0 16px;
+}
+
+.button {
+  display: inline-block;
+  min-width: 220px;
+  min-height: 48px;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--on-ink);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.note {
+  color: var(--sub);
+  font-size: 15px;
+}
+
+/* 下の帯 */
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--sub);
+  font-size: 15px;
+  padding: 20px 0 32px;
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-bottom: 8px;
+}
+
+.site-footer nav a {
+  display: inline-block;
+  padding: 8px 0;
+}
