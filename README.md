@@ -1,6 +1,6 @@
 # ichiji
 
-アプリ「一年の一字」の公開ページ（サポート、プライバシーポリシー、筆順のデータと権利）。
+アプリ「ひとじ」の公開ページ（サポート、プライバシーポリシー、筆順のデータと権利）。
 
 このフォルダの中身を、公開の GitHub のリポジトリ `kuwabaky/ichiji` のルートに置き、GitHub Pages で <https://kuwabaky.github.io/ichiji/> に出す。ビルドは要らない（静的な HTML と CSS だけ）。
 
@@ -20,7 +20,9 @@
 
 ## 公開の前にすること
 
-- HTML の中の `<!-- TODO -->`（連絡先のメール）を入れる。ほかのアプリの公開ページと同じ形（mailto のリンク）にする。
-- 制定日を、公開する日にする（`scripts/make-site.py` の `DATE_JA`、`DATE_EN`）。
-- 公開したら、`curl -fsSL https://kuwabaky.github.io/ichiji/strokes.json | shasum -a 256` が、開発のリポジトリの `content/2026/strokes.json` と同じになることを確かめる（`docs/release/testflight.md`）。
+手順は、開発のリポジトリの `docs/release/site.md`。
+
+- 連絡先のメールは、開発のリポジトリには書かない（このフォルダの HTML では `<!-- TODO -->` のまま）。公開の置き場に置く形は、`python3 scripts/make-site.py --out <リポジトリの外のフォルダ> --contact <メール>` で書き出す。
+- 改定したら、最終改定日を直す（`scripts/make-site.py` の `REVISED_JA`、`REVISED_EN`。制定日の `DATE_JA`、`DATE_EN` は変えない）。
+- 公開したら、`python3 scripts/make-site.py --public` で、公開中のページが、このフォルダと同じ（連絡先の所を除く）で、`strokes.json` がアプリに入れるファイルと同じことを確かめる。
 - 本文は、アプリの実際の動きと、`docs/release/privacy-policy.md`、アプリの中のデータの扱いの文に合わせてある。扱うデータが変わったら、同時に直す。
